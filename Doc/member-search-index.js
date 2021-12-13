@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"domain","c":"Vak","l":"geefInfo()"},{"p":"domain","c":"Vak","l":"getNaam()"},{"p":"domain","c":"Vak","l":"isZelfde(Vak)","u":"isZelfde(domain.Vak)"},{"p":"domain","c":"Vak","l":"Vak(String, int)","u":"%3Cinit%3E(java.lang.String,int)"}];updateSearchResults();
