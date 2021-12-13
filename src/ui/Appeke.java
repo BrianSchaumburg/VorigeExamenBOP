@@ -23,14 +23,9 @@ public class Appeke {
        student.addExamen(examenweb);
        student.addExamen(examennetwerken);
         System.out.println(student.toString());
-        try
-        {
-            student.changeDate(LocalDate.of(2022,6,10),"bop");
-            System.out.println(student.toString());
-        }
-        catch(Exception e) {
-            System.out.println(e.getMessage());
-        }
+        student.changeDate(LocalDate.of(2022,3,20),"bop");
+        System.out.println(student.toString());
+
 
     }
 }

@@ -6,6 +6,7 @@ import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 
 public class Student {
     private String studentcode, voornaam, naam;
@@ -84,11 +85,8 @@ public class Student {
         throw new IllegalArgumentException();
         boolean result =false;
         int index =0 ;
-        for(Examen e: examens)
-        {
-            if(e.getDatum().equals(datum))
-                throw new IllegalArgumentException(this.voornaam + " heeft al een examen op "+ datum.toString());
-        }
+        if(examens.stream().anyMatch(c->c.getDatum().equals(datum)))
+            throw new IllegalArgumentException(this.voornaam +" heeft al een examen op "+ datum.toString());
         for (int i = 0; i < examens.size(); i++) {
             if (examens.get(i).getVak().getNaam().equals(vaknaam)) {
                 result = true;
@@ -98,7 +96,28 @@ public class Student {
         }
         if(!result)
             throw new IllegalArgumentException();
-        examens.get(index).setDatum(datum);
+        else{examens.get(index).setDatum(datum);
+           Examen[] temp = new Examen[examens.size()];
+           boolean condition =false;
+           do {
+               condition=false;
+               for (int i = 0; i < examens.size(); i++) {
+                   if (i + 1 < examens.size() - 1) {
+                       if (examens.get(i).getDatum().isAfter(examens.get(i + 1).getDatum())) {
+                           condition=true;
+                           Examen examen = examens.get(i + 1);
+                           examens.set(i + 1, examens.get(i));
+                           examens.set(i, examen);
+
+                       }
+                   }
+               }
+           }
+           while(condition);
+
+        }
+
+
     }
     public int[] spreiding()
     {   if(examens.size()<2)
