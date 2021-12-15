@@ -9,6 +9,7 @@ public class Appeke {
     public static void main(String[] args)
 
     {
+        System.out.println("Dit de start van het testprogramma");
         Vak algo =new Vak("algo", 3);
         Vak web1 = new Vak("web1",4);
         Vak bop =new Vak("bop", 5);
@@ -25,6 +26,7 @@ public class Appeke {
         System.out.println(student.toString());
         student.changeDate(LocalDate.of(2022,3,20),"bop");
         System.out.println(student.toString());
+        System.out.println("Hier wordt de errorboodschap getest.");
         try
         {
             student.changeDate(LocalDate.of(2022,6,10),"bop");
